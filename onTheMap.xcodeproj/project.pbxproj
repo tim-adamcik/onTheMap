@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */; };
 		BA37388E23CBAFE100ABB8AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */; };
-		BA37389023CBAFE100ABB8AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388F23CBAFE100ABB8AD /* ViewController.swift */; };
+		BA37389023CBAFE100ABB8AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388F23CBAFE100ABB8AD /* LoginViewController.swift */; };
 		BA37389323CBAFE100ABB8AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA37389123CBAFE100ABB8AD /* Main.storyboard */; };
 		BA37389523CBAFE200ABB8AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA37389423CBAFE200ABB8AD /* Assets.xcassets */; };
 		BA37389823CBAFE200ABB8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA37389623CBAFE200ABB8AD /* LaunchScreen.storyboard */; };
+		BA3738A923CBB59B00ABB8AD /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3738A823CBB59B00ABB8AD /* OTMClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BA37388823CBAFE100ABB8AD /* onTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA37388F23CBAFE100ABB8AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA37388F23CBAFE100ABB8AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BA37389223CBAFE100ABB8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA37389423CBAFE200ABB8AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA37389723CBAFE200ABB8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA37389923CBAFE200ABB8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA3738A823CBB59B00ABB8AD /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,72 @@
 		BA37388A23CBAFE100ABB8AD /* onTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */,
-				BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */,
-				BA37388F23CBAFE100ABB8AD /* ViewController.swift */,
-				BA37389123CBAFE100ABB8AD /* Main.storyboard */,
-				BA37389423CBAFE200ABB8AD /* Assets.xcassets */,
+				BA3738A123CBB00F00ABB8AD /* Model */,
+				BA3738A023CBB00000ABB8AD /* Controller */,
+				BA37389F23CBAFF000ABB8AD /* View */,
 				BA37389623CBAFE200ABB8AD /* LaunchScreen.storyboard */,
 				BA37389923CBAFE200ABB8AD /* Info.plist */,
 			);
 			path = onTheMap;
+			sourceTree = "<group>";
+		};
+		BA37389F23CBAFF000ABB8AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA37389123CBAFE100ABB8AD /* Main.storyboard */,
+				BA37389423CBAFE200ABB8AD /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA3738A023CBB00000ABB8AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */,
+				BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */,
+				BA37388F23CBAFE100ABB8AD /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BA3738A123CBB00F00ABB8AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA3738A723CBB57700ABB8AD /* Data */,
+				BA3738A423CBB51C00ABB8AD /* OnTheMapClient */,
+				BA3738A523CBB52900ABB8AD /* OTMResponse */,
+				BA3738A623CBB54D00ABB8AD /* OTMRequest */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA3738A423CBB51C00ABB8AD /* OnTheMapClient */ = {
+			isa = PBXGroup;
+			children = (
+				BA3738A823CBB59B00ABB8AD /* OTMClient.swift */,
+			);
+			path = OnTheMapClient;
+			sourceTree = "<group>";
+		};
+		BA3738A523CBB52900ABB8AD /* OTMResponse */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OTMResponse;
+			sourceTree = "<group>";
+		};
+		BA3738A623CBB54D00ABB8AD /* OTMRequest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OTMRequest;
+			sourceTree = "<group>";
+		};
+		BA3738A723CBB57700ABB8AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +197,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA37389023CBAFE100ABB8AD /* ViewController.swift in Sources */,
+				BA37389023CBAFE100ABB8AD /* LoginViewController.swift in Sources */,
+				BA3738A923CBB59B00ABB8AD /* OTMClient.swift in Sources */,
 				BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */,
 				BA37388E23CBAFE100ABB8AD /* SceneDelegate.swift in Sources */,
 			);
