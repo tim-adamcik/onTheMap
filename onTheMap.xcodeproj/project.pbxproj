@@ -17,6 +17,7 @@
 		BA3738AB23CD4BA700ABB8AD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3738AA23CD4BA700ABB8AD /* MapViewController.swift */; };
 		BA3738AD23CD4BD600ABB8AD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3738AC23CD4BD600ABB8AD /* ListViewController.swift */; };
 		BA4942A323CE8F5600C0F5E9 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A223CE8F5600C0F5E9 /* StudentLocation.swift */; };
+		BA4942A523CF589600C0F5E9 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A423CF589600C0F5E9 /* StudentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BA3738AA23CD4BA700ABB8AD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BA3738AC23CD4BD600ABB8AD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		BA4942A223CE8F5600C0F5E9 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		BA4942A423CF589600C0F5E9 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		BA3738A723CBB57700ABB8AD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BA4942A423CF589600C0F5E9 /* StudentModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				BA4942A323CE8F5600C0F5E9 /* StudentLocation.swift in Sources */,
 				BA3738AD23CD4BD600ABB8AD /* ListViewController.swift in Sources */,
 				BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */,
+				BA4942A523CF589600C0F5E9 /* StudentModel.swift in Sources */,
 				BA3738AB23CD4BA700ABB8AD /* MapViewController.swift in Sources */,
 				BA37388E23CBAFE100ABB8AD /* SceneDelegate.swift in Sources */,
 			);

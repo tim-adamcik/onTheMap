@@ -27,5 +27,23 @@ enum Endpoints {
             return "https://onthemap-api.udacity.com/v1/StudentLocation"
         }
     }
+}
+    
+    func taskForGetRequest(completion: @escaping ([StudentLocation], Error?) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.students.url) { (data, response, error) in
+            guard let data = data else {
+                completion([], error)
+                return
+            }
+         let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode([StudentLocation].self, from: data)
+                completion(responseObject, nil)
+            } catch {
+                completion([], error)
+            }
+    }
+        task.resume()
     
 }
