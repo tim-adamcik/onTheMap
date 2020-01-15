@@ -17,20 +17,20 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = OTMClient.taskForGetRequest(completion: { (students, error) in
+        listTableView.delegate = self
+        listTableView.dataSource = self
+        _ = OTMClient.getStudents(completion: { (students, error) in
             StudentModel.students = students
             DispatchQueue.main.async {
                 self.listTableView.reloadData()
             }
         })
-        listTableView.delegate = self
-        listTableView.dataSource = self
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        listTableView.reloadData()
+        super.viewWillAppear(animated)
     }
     
 }
@@ -49,7 +49,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell")!
         
         let student = StudentModel.students[indexPath.row]
-        cell.textLabel?.text = student.firstName + student.lastName
+        cell.textLabel?.text = student.firstName + " " + student.lastName
         
         return cell
     }

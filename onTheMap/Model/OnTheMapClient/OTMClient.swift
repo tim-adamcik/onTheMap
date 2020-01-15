@@ -31,7 +31,7 @@ enum Endpoints {
     }
 }
     
-    class func taskForGetRequest(completion: @escaping ([StudentLocation], Error?) -> Void) {
+    class func getStudents(completion: @escaping ([StudentLocation], Error?) -> Void) {
         
         let task = URLSession.shared.dataTask(with: Endpoints.students.url) { (data, response, error) in
             guard let data = data else {
@@ -40,12 +40,30 @@ enum Endpoints {
             }
          let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode([StudentLocation].self, from: data)
-                completion(responseObject, nil)
+                let responseObject = try decoder.decode(StudentLocationResponse.self, from: data)
+                completion(responseObject.results, nil)
             } catch {
                 completion([], error)
             }
     }
+        task.resume()
+    }
+    
+    class func postStudents(completion: @escaping ([StudentLocation], Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.students.url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"uniqueKey\": \"13334\", \"firstName\": \"Mark\", \"lastName\": \"Wender\",\"mapString\": \"Transylvania, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completion([], error)
+                return
+            }
+            if error != nil {
+                print(String(data: data, encoding: .utf8)!)
+            }
+        }
         task.resume()
     }
 }

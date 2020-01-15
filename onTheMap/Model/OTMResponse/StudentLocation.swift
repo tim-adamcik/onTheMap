@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct StudentLocationResponse: Codable {
+    let results: [StudentLocation]
+}
+
 struct StudentLocation: Codable {
     
     let firstName: String
@@ -18,4 +22,5 @@ struct StudentLocation: Codable {
     let mediaURL: String
     let objectId: String
     let uniqueKey: String
+    
 }
