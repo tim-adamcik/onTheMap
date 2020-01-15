@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+struct Auth {
+    static var accoutId = 0
+    static var requestToken = ""
+    static var sessionId = ""
+}
+
+enum Endpoints {
+    case students
+    
+    var url: URL {
+        return URL(string: stringValue)!
+    }
+    
+    var stringValue: String {
+        switch self {
+        case .students:
+            return "https://onthemap-api.udacity.com/v1/StudentLocation"
+        }
+    }
+    
+}
