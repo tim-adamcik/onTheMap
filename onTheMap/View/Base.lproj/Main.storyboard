@@ -110,7 +110,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NWh-SW-q81">
             <objects>
-                <tabBarController id="vPG-eI-UmZ" sceneMemberID="viewController">
+                <tabBarController wantsFullScreenLayout="YES" id="vPG-eI-UmZ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i68-uG-QEd"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rIO-d4-0xi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -129,7 +129,7 @@
         <!--List-->
         <scene sceneID="S9d-bu-CSZ">
             <objects>
-                <navigationController id="qrx-gl-7z2" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" id="qrx-gl-7z2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="iue-UA-g69"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hfD-Jq-vto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -191,7 +191,7 @@
         <!--Map-->
         <scene sceneID="QMi-xa-XGL">
             <objects>
-                <navigationController id="R3F-5Z-RUZ" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" id="R3F-5Z-RUZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="4Qq-u0-1t8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sLj-Xg-1du">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
