@@ -8,6 +8,8 @@
 
 import Foundation
 
+class OTMClient {
+    
 struct Auth {
     static var accoutId = 0
     static var requestToken = ""
@@ -29,7 +31,7 @@ enum Endpoints {
     }
 }
     
-    func taskForGetRequest(completion: @escaping ([StudentLocation], Error?) -> Void) {
+    class func taskForGetRequest(completion: @escaping ([StudentLocation], Error?) -> Void) {
         
         let task = URLSession.shared.dataTask(with: Endpoints.students.url) { (data, response, error) in
             guard let data = data else {
@@ -45,5 +47,5 @@ enum Endpoints {
             }
     }
         task.resume()
-    
+    }
 }
