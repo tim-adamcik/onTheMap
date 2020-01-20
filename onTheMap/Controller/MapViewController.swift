@@ -14,14 +14,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    var annotations = [MKPointAnnotation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let locations: StudentLocationResponse!
-        let dictionary: [String:Any] = locations!.results
-        var annotations = [MKPointAnnotation]()
-           
+        reloadMap()
     }
-   
+    
+    func reloadMap() {
+        annotations = []
+        mapView.removeAnnotations(mapView.annotations)
+        for student in StudentModel.students {
+            let annotation = MKPointAnnotation()
+            if let lat = CLLocationDegrees(exactly: student.latitude), let lon = CLLocationDegrees(exactly: student.longitude) {
+                let coordinateLocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                annotation.coordinate = coordinateLocation
+                annotation.title = "\(student.firstName) \(student.lastName)"
+                annotation.subtitle = student.mediaURL
+                annotations.append(annotation)
+            }
+        }
+        mapView.addAnnotations(annotations)
+    }
+    
     
     
     
@@ -29,5 +44,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func refreshBtnPressed(_ sender: Any) {
+        reloadMap()
     }
 }

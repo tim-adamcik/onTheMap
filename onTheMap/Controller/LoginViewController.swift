@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabVC")
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {

@@ -43,7 +43,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAg-RD-hGL"/>
-                                            <segue destination="vPG-eI-UmZ" kind="show" id="b0y-CF-6MM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,7 +109,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NWh-SW-q81">
             <objects>
-                <tabBarController wantsFullScreenLayout="YES" id="vPG-eI-UmZ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabVC" wantsFullScreenLayout="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vPG-eI-UmZ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i68-uG-QEd"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rIO-d4-0xi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -118,8 +117,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="R3F-5Z-RUZ" kind="relationship" relationship="viewControllers" id="cf1-Qf-Xa1"/>
                         <segue destination="qrx-gl-7z2" kind="relationship" relationship="viewControllers" id="5or-AO-1Y2"/>
+                        <segue destination="R3F-5Z-RUZ" kind="relationship" relationship="viewControllers" id="cf1-Qf-Xa1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHx-ji-Htm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,7 +131,7 @@
                 <navigationController wantsFullScreenLayout="YES" id="qrx-gl-7z2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="iue-UA-g69"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hfD-Jq-vto">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -148,11 +147,11 @@
             <objects>
                 <viewController id="Ohg-dB-FSz" customClass="ListViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nm3-hc-k1W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NsL-a6-qqR">
-                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" id="IAY-l4-ItY">
@@ -180,8 +179,16 @@
                         <viewLayoutGuide key="safeArea" id="DSF-4J-COu"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="778-jr-I6L">
-                        <barButtonItem key="leftBarButtonItem" image="mappin.and.ellipse" catalog="system" id="sod-4c-r04"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nTe-TB-oye"/>
+                        <barButtonItem key="leftBarButtonItem" image="mappin.and.ellipse" catalog="system" id="sod-4c-r04">
+                            <connections>
+                                <action selector="pintBtnPressed:" destination="Ohg-dB-FSz" id="3RV-U8-Dw4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nTe-TB-oye">
+                            <connections>
+                                <action selector="refreshBtnPressed:" destination="Ohg-dB-FSz" id="1a6-Pi-lBk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="NsL-a6-qqR" id="SN3-Ya-Agi"/>
@@ -197,7 +204,7 @@
                 <navigationController wantsFullScreenLayout="YES" id="R3F-5Z-RUZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="mappin.and.ellipse" catalog="system" id="4Qq-u0-1t8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sLj-Xg-1du">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -213,11 +220,11 @@
             <objects>
                 <viewController id="VaK-2s-MKm" customClass="MapViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u08-SL-vBi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JIM-b3-smr">
-                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
