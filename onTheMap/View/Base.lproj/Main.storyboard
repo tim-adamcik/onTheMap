@@ -240,6 +240,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="twD-kf-Cdl">
                             <connections>
                                 <action selector="pinBtnPressed:" destination="VaK-2s-MKm" id="qRp-Bs-yHE"/>
+                                <segue destination="Gyg-7L-0Ab" kind="show" id="Ejh-Sj-Dz6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MiQ-Zc-fsW">
@@ -256,20 +257,72 @@
             </objects>
             <point key="canvasLocation" x="2618.840579710145" y="-349.55357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Drop Pin Controller-->
         <scene sceneID="kK0-d2-rPx">
             <objects>
-                <viewController id="Gyg-7L-0Ab" sceneMemberID="viewController">
+                <viewController id="Gyg-7L-0Ab" customClass="DropPinController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oyr-tb-dQk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-qJ-fWs">
+                                <rect key="frame" x="0.0" y="108" width="414" height="685"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-Ax-Ck5">
+                                        <rect key="frame" x="99.5" y="0.0" width="215.5" height="202"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCR-LP-tI4">
+                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="42"/>
+                                                <string key="text">Where are you 
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-iG-IRe">
+                                                <rect key="frame" x="36" y="79" width="143" height="44"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="shadowOffset" width="0.0" height="2"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztZ-NM-nRH">
+                                                <rect key="frame" x="56.5" y="160" width="102" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-lN-FmG">
+                                        <rect key="frame" x="18.5" y="282" width="377" height="278"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwU-eD-IyE">
+                                        <rect key="frame" x="110.5" y="640" width="193" height="45"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="29"/>
+                                        <state key="normal" title="Find on the Map"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gXs-qJ-fWs" firstAttribute="leading" secondItem="Oyr-tb-dQk" secondAttribute="leading" id="5Ay-OQ-PaP"/>
+                            <constraint firstItem="a8Z-aO-bfU" firstAttribute="bottom" secondItem="gXs-qJ-fWs" secondAttribute="bottom" constant="20" id="8bt-9W-3l4"/>
+                            <constraint firstItem="a8Z-aO-bfU" firstAttribute="trailing" secondItem="gXs-qJ-fWs" secondAttribute="trailing" id="SIh-PJ-eHV"/>
+                            <constraint firstItem="gXs-qJ-fWs" firstAttribute="top" secondItem="a8Z-aO-bfU" secondAttribute="top" constant="20" id="wno-01-EhH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a8Z-aO-bfU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Cwb-ab-ULf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xa-lr-RLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3786" y="-13"/>
+            <point key="canvasLocation" x="3785.507246376812" y="-13.392857142857142"/>
         </scene>
     </scenes>
     <resources>
