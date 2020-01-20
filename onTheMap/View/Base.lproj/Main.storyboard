@@ -143,7 +143,7 @@
             </objects>
             <point key="canvasLocation" x="1779" y="351"/>
         </scene>
-        <!--List View Controller-->
+        <!--On The Map-->
         <scene sceneID="JOU-GX-H5U">
             <objects>
                 <viewController id="Ohg-dB-FSz" customClass="ListViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -179,7 +179,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DSF-4J-COu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="778-jr-I6L"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="778-jr-I6L">
+                        <barButtonItem key="leftBarButtonItem" image="mappin.and.ellipse" catalog="system" id="sod-4c-r04"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nTe-TB-oye"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="listTableView" destination="NsL-a6-qqR" id="SN3-Ya-Agi"/>
                     </connections>
@@ -205,21 +208,46 @@
             </objects>
             <point key="canvasLocation" x="1771" y="-353"/>
         </scene>
-        <!--Map View Controller-->
+        <!--On The Map-->
         <scene sceneID="vcW-bt-DvM">
             <objects>
                 <viewController id="VaK-2s-MKm" customClass="MapViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u08-SL-vBi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JIM-b3-smr">
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JIM-b3-smr" firstAttribute="bottom" secondItem="Yqa-bo-EGP" secondAttribute="bottom" id="759-4i-otZ"/>
+                            <constraint firstItem="JIM-b3-smr" firstAttribute="trailing" secondItem="Yqa-bo-EGP" secondAttribute="trailing" id="9l3-rC-Ink"/>
+                            <constraint firstItem="JIM-b3-smr" firstAttribute="top" secondItem="Yqa-bo-EGP" secondAttribute="top" id="Dbl-ZT-9qk"/>
+                            <constraint firstItem="JIM-b3-smr" firstAttribute="leading" secondItem="Yqa-bo-EGP" secondAttribute="leading" id="H8k-pC-au3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yqa-bo-EGP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EJd-cb-JC1"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="EJd-cb-JC1">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="twD-kf-Cdl">
+                            <connections>
+                                <action selector="pinBtnPressed:" destination="VaK-2s-MKm" id="qRp-Bs-yHE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MiQ-Zc-fsW">
+                            <connections>
+                                <action selector="refreshBtnPressed:" destination="VaK-2s-MKm" id="EZg-uo-A9H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="JIM-b3-smr" id="IAD-kc-OUh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd0-sC-jOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620" y="-349"/>
+            <point key="canvasLocation" x="2618.840579710145" y="-349.55357142857139"/>
         </scene>
     </scenes>
     <resources>

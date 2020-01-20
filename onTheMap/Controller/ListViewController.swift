@@ -53,5 +53,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIApplication.shared.open(URL(string: "https://www.linkedin.com")!, options: [:], completionHandler: nil)
+    }
+    
     
 }
