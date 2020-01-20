@@ -14,6 +14,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let locations: StudentLocationResponse!
+        let dictionary: [String:Any] = locations!.results
+        var annotations = [MKPointAnnotation]()
+           
+    }
+   
+    
     
     
     @IBAction func pinBtnPressed(_ sender: Any) {

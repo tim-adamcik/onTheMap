@@ -14,6 +14,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView!
     
     var selectedIndex = 0
+    var urlLinks: StudentLocation!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +56,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIApplication.shared.open(URL(string: "https://www.linkedin.com")!, options: [:], completionHandler: nil)
+        let link: String? = urlLinks.mediaURL
+        if let link = link {
+            UIApplication.shared.open(URL(string: link)!, options: [:], completionHandler: nil)
+        }
     }
-    
-    
 }
