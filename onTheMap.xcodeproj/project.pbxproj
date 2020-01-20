@@ -18,6 +18,7 @@
 		BA3738AD23CD4BD600ABB8AD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3738AC23CD4BD600ABB8AD /* ListViewController.swift */; };
 		BA4942A323CE8F5600C0F5E9 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A223CE8F5600C0F5E9 /* StudentLocation.swift */; };
 		BA4942A523CF589600C0F5E9 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A423CF589600C0F5E9 /* StudentModel.swift */; };
+		BA4942A723D52E8D00C0F5E9 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A623D52E8D00C0F5E9 /* LoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BA3738AC23CD4BD600ABB8AD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		BA4942A223CE8F5600C0F5E9 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		BA4942A423CF589600C0F5E9 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		BA4942A623D52E8D00C0F5E9 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		BA3738A623CBB54D00ABB8AD /* OTMRequest */ = {
 			isa = PBXGroup;
 			children = (
+				BA4942A623D52E8D00C0F5E9 /* LoginRequest.swift */,
 			);
 			path = OTMRequest;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA4942A723D52E8D00C0F5E9 /* LoginRequest.swift in Sources */,
 				BA37389023CBAFE100ABB8AD /* LoginViewController.swift in Sources */,
 				BA3738A923CBB59B00ABB8AD /* OTMClient.swift in Sources */,
 				BA4942A323CE8F5600C0F5E9 /* StudentLocation.swift in Sources */,
