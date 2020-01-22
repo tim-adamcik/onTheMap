@@ -240,7 +240,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="twD-kf-Cdl">
                             <connections>
                                 <action selector="pinBtnPressed:" destination="VaK-2s-MKm" id="qRp-Bs-yHE"/>
-                                <segue destination="Gyg-7L-0Ab" kind="show" id="Ejh-Sj-Dz6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MiQ-Zc-fsW">
@@ -260,21 +259,19 @@
         <!--Drop Pin Controller-->
         <scene sceneID="kK0-d2-rPx">
             <objects>
-                <viewController id="Gyg-7L-0Ab" customClass="DropPinController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DropPinController" id="Gyg-7L-0Ab" customClass="DropPinController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oyr-tb-dQk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-qJ-fWs">
-                                <rect key="frame" x="0.0" y="108" width="414" height="685"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="778"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-Ax-Ck5">
                                         <rect key="frame" x="99.5" y="0.0" width="215.5" height="202"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCR-LP-tI4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCR-LP-tI4">
                                                 <rect key="frame" x="0.0" y="0.0" width="215.5" height="42"/>
-                                                <string key="text">Where are you 
-</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -295,16 +292,23 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-lN-FmG">
-                                        <rect key="frame" x="18.5" y="282" width="377" height="278"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-lN-FmG">
+                                        <rect key="frame" x="18.5" y="282" width="377" height="371"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwU-eD-IyE">
-                                        <rect key="frame" x="110.5" y="640" width="193" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwU-eD-IyE">
+                                        <rect key="frame" x="110.5" y="733" width="193" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="XwO-F3-Y9L"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="29"/>
                                         <state key="normal" title="Find on the Map"/>
+                                        <connections>
+                                            <action selector="findOnMapBtn:" destination="Gyg-7L-0Ab" eventType="touchUpInside" id="Qs3-jx-KF0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -319,10 +323,28 @@
                         <viewLayoutGuide key="safeArea" id="a8Z-aO-bfU"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cwb-ab-ULf"/>
+                    <connections>
+                        <outlet property="enterLocationTextField" destination="CvY-lN-FmG" id="ceH-Ni-Ujz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xa-lr-RLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3785.507246376812" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="3506" y="23"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6q5-H0-dvq">
+            <objects>
+                <viewController id="olY-BS-R3E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sW4-so-vgu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GgP-WQ-ydy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOI-VO-SE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4356" y="26"/>
         </scene>
     </scenes>
     <resources>

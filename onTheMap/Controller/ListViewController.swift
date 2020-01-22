@@ -35,6 +35,8 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func pintBtnPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinController")
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func refreshBtnPressed(_ sender: Any) {

@@ -11,4 +11,9 @@ import UIKit
 
 class DropPinController: UIViewController {
     
+    @IBOutlet weak var enterLocationTextField: UITextField!
+    
+    
+    @IBAction func findOnMapBtn(_ sender: Any) {
+    }
 }
