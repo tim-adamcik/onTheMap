@@ -8,7 +8,10 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class AddLinkVC: UIViewController {
     
+    @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var linkMapView: MKMapView!
 }
