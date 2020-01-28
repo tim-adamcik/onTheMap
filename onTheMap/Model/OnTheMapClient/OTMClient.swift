@@ -11,7 +11,7 @@ import Foundation
 class OTMClient {
     
 struct Auth {
-    static var id = 0
+    static var id = ""
     static var key = ""
 }
 
@@ -33,7 +33,7 @@ enum Endpoints {
     }
 }
     
-    class func handleLoginRequest(_ username: String, _ password: String, completion: @ escaping (Bool?, Error?) -> Void) {
+    class func handleLoginRequest(_ username: String, _ password: String, completion: @ escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: Endpoints.handleLoginRequest.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -42,17 +42,28 @@ enum Endpoints {
         request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(nil, error)
+            if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 403 {
+                let errorTemp = NSError(domain:"", code: statusCode, userInfo:nil)
+                completion(false, errorTemp)
                 return
             }
-            let range = 5..<data!.count
-             let newData = data?.subdata(in: range) /* subset response data! */
-             print(String(data: newData!, encoding: .utf8)!)
-            
+            if let data = data {
+                let range = 5..<data.count
+                let newData = data.subdata(in: range) /* subset response data! */
+                guard let json = try? JSONSerialization.jsonObject(with: newData, options: []) as? [String:Any] else { return }
+                if let accountDict = json["account"] as? [String:Any],
+                    let sessionDict = json["session"] as? [String:Any],
+                    let key = accountDict["key"] as? String,
+                    let id = sessionDict["id"] as? String {
+                    Auth.key = key
+                    Auth.id = id
+                    completion(true, nil)
+                }
+            }
         }
         task.resume()
     }
+    
     
     class func getStudents(completion: @escaping ([StudentLocation], Error?) -> Void) {
         
