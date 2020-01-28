@@ -33,28 +33,23 @@ enum Endpoints {
     }
 }
     
-    class func handleLoginRequest(_ username: String, _ password: String, completion: @ escaping (Int?, Error?) -> Void) {
+    class func handleLoginRequest(_ username: String, _ password: String, completion: @ escaping (Bool?, Error?) -> Void) {
         var request = URLRequest(url: Endpoints.handleLoginRequest.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // encoding a JSON body from a string, can also use a Codable struct
-        request.httpBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".data(using: .utf8)
+        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-          if error != nil {
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                return }
-            let message: String
-            if statusCode == 403 {
-                //custom error alert
-            } else {
-                //generic alert udacity server is down
+            if let error = error {
+                completion(nil, error)
+                return
             }
-          }
             let range = 5..<data!.count
-          let newData = data?.subdata(in: range) /* subset response data! */
-          print(String(data: newData!, encoding: .utf8)!)
+             let newData = data?.subdata(in: range) /* subset response data! */
+             print(String(data: newData!, encoding: .utf8)!)
+            
         }
         task.resume()
     }
