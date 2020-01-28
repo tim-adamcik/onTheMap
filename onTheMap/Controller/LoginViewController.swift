@@ -21,6 +21,13 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonPressed(_ sender: Any) {
+        guard emailTextField.text != nil, passwordTextField.text != nil else {
+            //Alert email or password is not entered
+            return }
+        OTMClient.handleLoginRequest(emailTextField.text!, passwordTextField.text!) { (code, error) in
+            
+            
+        }
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabVC")
         vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         present(vc, animated: true, completion: nil)

@@ -11,14 +11,13 @@ import Foundation
 class OTMClient {
     
 struct Auth {
-    static var accoutId = 0
-    static var requestToken = ""
-    static var sessionId = ""
+    static var id = 0
+    static var key = ""
 }
 
 enum Endpoints {
     case students
-    case createSessionId
+    case handleLoginRequest
     
     var url: URL {
         return URL(string: stringValue)!
@@ -28,14 +27,14 @@ enum Endpoints {
         switch self {
         case .students:
             return "https://onthemap-api.udacity.com/v1/StudentLocation"
-        case .createSessionId:
+        case .handleLoginRequest:
             return "https://onthemap-api.udacity.com/v1/session"
         }
     }
 }
     
-    class func createSessionID(completion: @ escaping (Bool, Error?) -> Void) {
-        var request = URLRequest(url: Endpoints.createSessionId.url)
+    class func handleLoginRequest(_ username: String, _ password: String, completion: @ escaping (Int?, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.handleLoginRequest.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -43,8 +42,15 @@ enum Endpoints {
         request.httpBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-          if error != nil { // Handle error…
-              return
+          if error != nil {
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                return }
+            let message: String
+            if statusCode == 403 {
+                //custom error alert
+            } else {
+                //generic alert udacity server is down
+            }
           }
             let range = 5..<data!.count
           let newData = data?.subdata(in: range) /* subset response data! */
