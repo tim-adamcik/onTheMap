@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         reloadMap()
     }
     
@@ -36,12 +37,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         mapView.addAnnotations(annotations)
     }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifer = "idForView"
+        var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifer) as? MKPinAnnotationView
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifer)
+            view!.canShowCallout = true
+            view!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            return view
+        } else {
+            view!.annotation = annotation
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let subtitle = view.annotation?.subtitle as? String {
+            guard let url = URL(string: subtitle) else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
     
     
     
     
     @IBAction func pinBtnPressed(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinController")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinNC")
         present(vc, animated: true, completion: nil)
     }
     

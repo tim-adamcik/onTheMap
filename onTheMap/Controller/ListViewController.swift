@@ -21,6 +21,7 @@ class ListViewController: UIViewController {
         refreshStudentTable()
     }
     
+    
     func refreshStudentTable() {
         _ = OTMClient.getStudents(completion: { (students, error) in
                   StudentModel.students = students
@@ -35,7 +36,7 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func pintBtnPressed(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinController")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinNC")
         present(vc, animated: true, completion: nil)
     }
     

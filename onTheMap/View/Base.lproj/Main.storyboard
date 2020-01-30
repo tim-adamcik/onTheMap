@@ -32,7 +32,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cC-et-3wj">
                                         <rect key="frame" x="0.0" y="42" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-LB-eWb">
                                         <rect key="frame" x="0.0" y="84" width="374" height="38"/>
@@ -259,7 +259,7 @@
         <!--Drop Pin Controller-->
         <scene sceneID="kK0-d2-rPx">
             <objects>
-                <viewController storyboardIdentifier="DropPinController" id="Gyg-7L-0Ab" customClass="DropPinController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DropPinController" modalPresentationStyle="fullScreen" id="Gyg-7L-0Ab" customClass="DropPinController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oyr-tb-dQk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,9 +338,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8Z-aO-bfU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cwb-ab-ULf">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="hLj-Wm-zc3"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Cwb-ab-ULf"/>
                     <connections>
                         <outlet property="enterLocationTextField" destination="YgC-r7-7aP" id="aFc-mq-Kan"/>
                     </connections>
@@ -352,7 +350,7 @@
         <!--Add LinkVC-->
         <scene sceneID="6q5-H0-dvq">
             <objects>
-                <viewController id="olY-BS-R3E" customClass="AddLinkVC" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="olY-BS-R3E" customClass="AddLinkVC" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sW4-so-vgu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +403,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Itw-KY-x2Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T2D-VQ-AxD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DropPinNC" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="T2D-VQ-AxD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uDh-Mo-EML">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
