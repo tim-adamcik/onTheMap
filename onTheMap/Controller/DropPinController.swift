@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class DropPinController: UIViewController {
+class DropPinController: UIViewController, UISearchBarDelegate {
+    
+  
+    @IBOutlet weak var enterLocationTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +23,16 @@ class DropPinController: UIViewController {
         dismiss(animated: true)
     }
     
-  
-    @IBOutlet weak var enterLocationTextField: UITextField!
     
+    @IBAction func searchTextField(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        present(searchController, animated: true, completion: nil)
+    }
     
     @IBAction func findOnMapBtn(_ sender: Any) {
     }
+    
 }
+
+
