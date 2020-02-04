@@ -21,7 +21,6 @@
 		BA4942A723D52E8D00C0F5E9 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A623D52E8D00C0F5E9 /* LoginRequest.swift */; };
 		BA4942A923D6466F00C0F5E9 /* DropPinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942A823D6466F00C0F5E9 /* DropPinController.swift */; };
 		BA4942AD23E5E6C100C0F5E9 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942AC23E5E6C100C0F5E9 /* AddLocationViewController.swift */; };
-		BA4942AF23E60A3B00C0F5E9 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4942AE23E60A3B00C0F5E9 /* LocationSearchTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		BA4942A623D52E8D00C0F5E9 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		BA4942A823D6466F00C0F5E9 /* DropPinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinController.swift; sourceTree = "<group>"; };
 		BA4942AC23E5E6C100C0F5E9 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
-		BA4942AE23E60A3B00C0F5E9 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 				BA3738AC23CD4BD600ABB8AD /* ListViewController.swift */,
 				BA4942A823D6466F00C0F5E9 /* DropPinController.swift */,
 				BA4942AC23E5E6C100C0F5E9 /* AddLocationViewController.swift */,
-				BA4942AE23E60A3B00C0F5E9 /* LocationSearchTable.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,7 +221,6 @@
 				BA4942A723D52E8D00C0F5E9 /* LoginRequest.swift in Sources */,
 				BA37389023CBAFE100ABB8AD /* LoginViewController.swift in Sources */,
 				BA3738A923CBB59B00ABB8AD /* OTMClient.swift in Sources */,
-				BA4942AF23E60A3B00C0F5E9 /* LocationSearchTable.swift in Sources */,
 				BA4942A323CE8F5600C0F5E9 /* StudentLocation.swift in Sources */,
 				BA3738AD23CD4BD600ABB8AD /* ListViewController.swift in Sources */,
 				BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */,

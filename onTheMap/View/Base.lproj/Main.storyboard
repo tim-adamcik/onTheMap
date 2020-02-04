@@ -388,6 +388,9 @@
                                             <constraint firstAttribute="height" constant="50" id="wqN-fL-wSI"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="SBZ-49-hvG" id="UNp-AB-SeD"/>
+                                        </connections>
                                     </searchBar>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGm-5l-q6h">
                                         <rect key="frame" x="0.0" y="276" width="414" height="350"/>
@@ -436,57 +439,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="SVK-Dz-09F"/>
                     <connections>
-                        <outlet property="mapView" destination="bGm-5l-q6h" id="ml8-yP-Gmr"/>
-                        <outlet property="searchBarOutlet" destination="hlU-HY-6wp" id="Bki-w1-vZW"/>
+                        <outlet property="mapView" destination="bGm-5l-q6h" id="XvY-sz-9MC"/>
+                        <outlet property="searchBar" destination="hlU-HY-6wp" id="uL7-Pp-rGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcO-3B-kzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5202.898550724638" y="23.4375"/>
-        </scene>
-        <!--Location Search Table-->
-        <scene sceneID="tYY-9Y-gv0">
-            <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="jK2-XR-dMy" customClass="LocationSearchTable" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QEf-N0-DFl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchBarCell" textLabel="kgC-ze-LoF" detailTextLabel="T9b-gr-CCO" style="IBUITableViewCellStyleSubtitle" id="xzC-xT-oHR">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xzC-xT-oHR" id="5lF-Vv-QSd">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kgC-ze-LoF">
-                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T9b-gr-CCO">
-                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="jK2-XR-dMy" id="XuP-5z-dhf"/>
-                            <outlet property="delegate" destination="jK2-XR-dMy" id="hqW-fe-x3k"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BBV-VG-Qeh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6012" y="26"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Itw-KY-x2Z">
