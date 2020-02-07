@@ -36,8 +36,13 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func pintBtnPressed(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DropPinNC")
-        present(vc, animated: true, completion: nil)
+        let alertVC = UIAlertController(title: "Override", message: "Creating a new pin will erase existing pin", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Continue", style: .default, handler: { alert in
+            let vc = self.storyboard?.instantiateViewController(identifier: "AddLocationNC") as! UINavigationController
+            self.present(vc, animated: true, completion: nil)
+            }))
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertVC, animated: true)
     }
     
     @IBAction func refreshBtnPressed(_ sender: Any) {
