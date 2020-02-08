@@ -16,7 +16,7 @@ class AddLinkViewController: UIViewController {
     var currentMapString: String?
     var mediaURL: String = ""
     
-   
+    let post = StudentLocation(latitude: <#T##Double#>, longitude: <#T##Double#>, mapString: currentMapString, mediaURL: linkTextField.text, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
     
     override func viewDidLoad() {
         super.viewDidLoad()

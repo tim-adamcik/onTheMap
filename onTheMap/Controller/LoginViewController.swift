@@ -14,7 +14,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-
+    var udacityDict: [String:String]?
+    var username: String
+    var password: String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +40,9 @@ class LoginViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     return
                 }
+                self.username = self.emailTextField.text!
+                self.password = self.passwordTextField.text!
+                self.udacityDict = [self.emailTextField.text! : self.passwordTextField.text!]
                 
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabVC")
                 vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen

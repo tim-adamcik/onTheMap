@@ -18,6 +18,7 @@ struct Auth {
 enum Endpoints {
     case students
     case handleLoginRequest
+    case deleteRequest
     
     var url: URL {
         return URL(string: stringValue)!
@@ -28,6 +29,8 @@ enum Endpoints {
         case .students:
             return "https://onthemap-api.udacity.com/v1/StudentLocation"
         case .handleLoginRequest:
+            return "https://onthemap-api.udacity.com/v1/session"
+        case .deleteRequest:
             return "https://onthemap-api.udacity.com/v1/session"
         }
     }
@@ -114,5 +117,27 @@ enum Endpoints {
         task.resume()
     }
     
+    class func deleteSession(completion: @escaping (Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.deleteRequest.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            let range = 5..<data!.count
+            let newData = data?.subdata(in: range) /* subset response data! */
+            print(String(data: newData!, encoding: .utf8)!)
+        }
+        task.resume()
+    }
     
 }
