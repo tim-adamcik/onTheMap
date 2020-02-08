@@ -15,8 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     var udacityDict: [String:String]?
-    var username: String
-    var password: String
+    var username: String?
+    var password: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
