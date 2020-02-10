@@ -19,6 +19,7 @@ class AddLinkViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var linkLabel: UILabel!
     
+    @IBOutlet weak var enterLinkTextField: UITextField!
     
     
     
