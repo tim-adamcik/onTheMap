@@ -9,18 +9,27 @@
 import Foundation
 import UIKit
 
-class AddLinkViewController: UIViewController {
+class AddLinkViewController: UIViewController, UITextFieldDelegate {
     
     var currentLatitude: Double?
     var currentLongitude: Double?
     var currentMapString: String?
-    var mediaURL: String = ""
+    var currentmediaURL: String = ""
     
-    let post = StudentLocation(latitude: <#T##Double#>, longitude: <#T##Double#>, mapString: currentMapString, mediaURL: linkTextField.text, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
+    
+    @IBOutlet weak var linkLabel: UILabel!
+    
+    
+    
+    
+//    let post = StudentLocation(latitude: <#T##Double#>, longitude: <#T##Double#>, mapString: currentMapString, mediaURL: "www.udacity.com", objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+    }
+    
+    @IBAction func submitBtn(_ sender: Any) {
     }
     
     

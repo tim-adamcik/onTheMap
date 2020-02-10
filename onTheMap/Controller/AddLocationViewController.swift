@@ -41,12 +41,18 @@ class AddLocationViewController: UIViewController {
     
     
     @IBAction func addLinkButton(_ sender: Any) {
+        let searchBarText = searchBar.text
+        if searchBarText == "" {
+            let alert = UIAlertController(title: "Error", message: "Please search for a location", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
         let vc = storyboard?.instantiateViewController(identifier: "AddLinkViewController") as! AddLinkViewController
         vc.currentLatitude = self.latitude
         vc.currentLongitude = self.longitude
         vc.currentMapString = self.mapString
         present(vc, animated: true)
-        
+        }
     }
     
 }

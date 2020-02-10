@@ -455,57 +455,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="9Xx-m9-Hz2">
-                                <rect key="frame" x="38" y="99" width="338" height="708"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your Link!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDr-4G-iXP">
-                                        <rect key="frame" x="55.5" y="0.0" width="227" height="44.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwt-nM-ibr">
-                                        <rect key="frame" x="3.5" y="194.5" width="331" height="358.5"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Link Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylk-Nh-tN2">
-                                                <rect key="frame" x="8" y="139" width="315" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.061906658220000001" green="0.5110934292" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="ylk-Nh-tN2" firstAttribute="centerX" secondItem="Vwt-nM-ibr" secondAttribute="centerX" id="KSS-9Z-O9e"/>
-                                            <constraint firstItem="ylk-Nh-tN2" firstAttribute="centerY" secondItem="Vwt-nM-ibr" secondAttribute="centerY" id="lWF-o3-Peb"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lm-zP-qRd">
-                                        <rect key="frame" x="100" y="703" width="138" height="5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="hzb-hv-teE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <state key="normal" title="Submit"/>
-                                    </button>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Your Link!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aU5-ns-etX">
+                                <rect key="frame" x="74.5" y="109" width="265" height="50"/>
                                 <constraints>
-                                    <constraint firstItem="0lm-zP-qRd" firstAttribute="leading" secondItem="9Xx-m9-Hz2" secondAttribute="leading" constant="100" id="EOr-gF-r6X"/>
-                                    <constraint firstAttribute="trailing" secondItem="0lm-zP-qRd" secondAttribute="trailing" constant="100" id="gZi-dh-Mo3"/>
+                                    <constraint firstAttribute="height" constant="50" id="q5D-QR-qD0"/>
+                                    <constraint firstAttribute="width" constant="265" id="sj1-rq-H0b"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtR-4l-qjK">
+                                <rect key="frame" x="132" y="743" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.1394279558" green="0.54395530209999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="IXx-Cr-9sE"/>
+                                    <constraint firstAttribute="height" constant="50" id="Khf-H8-CUm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitBtn:" destination="yGe-aY-vGm" eventType="touchUpInside" id="Ala-EB-RNk"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIZ-8t-tPR">
+                                <rect key="frame" x="0.0" y="264" width="414" height="394"/>
+                                <color key="backgroundColor" red="0.1394279558" green="0.54395530209999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="9Xx-m9-Hz2" firstAttribute="top" secondItem="DpT-rT-rmd" secondAttribute="top" constant="55" id="9to-gz-lqn"/>
-                            <constraint firstItem="9Xx-m9-Hz2" firstAttribute="leading" secondItem="DpT-rT-rmd" secondAttribute="leading" constant="38" id="Muo-k5-Mk8"/>
-                            <constraint firstItem="9Xx-m9-Hz2" firstAttribute="centerX" secondItem="DpT-rT-rmd" secondAttribute="centerX" id="frs-YW-wRo"/>
-                            <constraint firstItem="9Xx-m9-Hz2" firstAttribute="centerY" secondItem="DpT-rT-rmd" secondAttribute="centerY" id="hX7-gv-IJK"/>
-                            <constraint firstItem="DpT-rT-rmd" firstAttribute="trailing" secondItem="9Xx-m9-Hz2" secondAttribute="trailing" constant="38" id="lLa-jn-OBt"/>
-                            <constraint firstItem="DpT-rT-rmd" firstAttribute="bottom" secondItem="9Xx-m9-Hz2" secondAttribute="bottom" constant="55" id="vM4-X9-4zd"/>
+                            <constraint firstItem="DpT-rT-rmd" firstAttribute="bottom" secondItem="FtR-4l-qjK" secondAttribute="bottom" constant="69" id="53l-oX-Ecv"/>
+                            <constraint firstItem="DpT-rT-rmd" firstAttribute="trailing" secondItem="dIZ-8t-tPR" secondAttribute="trailing" id="5f1-Mu-TzR"/>
+                            <constraint firstItem="dIZ-8t-tPR" firstAttribute="centerX" secondItem="DpT-rT-rmd" secondAttribute="centerX" id="7Dk-Nm-biJ"/>
+                            <constraint firstItem="dIZ-8t-tPR" firstAttribute="leading" secondItem="DpT-rT-rmd" secondAttribute="leading" id="IPT-j5-GTm"/>
+                            <constraint firstItem="dIZ-8t-tPR" firstAttribute="top" secondItem="aU5-ns-etX" secondAttribute="bottom" constant="105" id="M7F-Ay-7gO"/>
+                            <constraint firstItem="FtR-4l-qjK" firstAttribute="top" secondItem="dIZ-8t-tPR" secondAttribute="bottom" constant="85" id="gmZ-op-ahm"/>
+                            <constraint firstItem="FtR-4l-qjK" firstAttribute="centerX" secondItem="DpT-rT-rmd" secondAttribute="centerX" id="vcs-HK-15B"/>
+                            <constraint firstItem="aU5-ns-etX" firstAttribute="centerX" secondItem="DpT-rT-rmd" secondAttribute="centerX" id="vhR-L3-jSp"/>
+                            <constraint firstItem="aU5-ns-etX" firstAttribute="top" secondItem="DpT-rT-rmd" secondAttribute="top" constant="65" id="zpH-UQ-zh9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DpT-rT-rmd"/>
                     </view>
+                    <connections>
+                        <outlet property="linkLabel" destination="aU5-ns-etX" id="wyd-u2-T3K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rl-XP-NWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
