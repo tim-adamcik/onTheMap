@@ -52,8 +52,8 @@ class AddLinkViewController: UIViewController, UITextFieldDelegate {
     
     
     fileprivate func handlePostStudentRequest() {
-        let post = StudentLocation(firstName: "Daffy", lastName: "Duck", latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
-        OTMClient.postStudents(body: post) { (error) in
+        let body = StudentLocation(firstName: "Daffy", lastName: "Duck", latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
+        OTMClient.postStudents(body: body) { (error) in
             DispatchQueue.main.async {
                 if let error = error {
                     let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)

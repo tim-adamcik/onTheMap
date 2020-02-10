@@ -47,11 +47,11 @@ class AddLocationViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-        let vc = storyboard?.instantiateViewController(identifier: "AddLinkViewController") as! AddLinkViewController
-        vc.currentLatitude = self.latitude
-        vc.currentLongitude = self.longitude
-        vc.currentMapString = self.mapString
-        present(vc, animated: true)
+            let vc = storyboard?.instantiateViewController(identifier: "AddLinkViewController") as! AddLinkViewController
+            vc.currentLatitude = self.latitude
+            vc.currentLongitude = self.longitude
+            vc.currentMapString = self.mapString
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

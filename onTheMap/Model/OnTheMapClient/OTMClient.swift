@@ -93,7 +93,7 @@ enum Endpoints {
         var request = URLRequest(url: Endpoints.students.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"13334\", \"firstName\": \"Mark\", \"lastName\": \"Wender\",\"mapString\": \"Transylvania, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: .utf8)
+        request.httpBody = "{\"uniqueKey\": \"\(body.uniqueKey)\", \"firstName\": \"\(body.firstName)\", \"lastName\": \"\(body.lastName)\",\"(mapString)\": \"\(body.mapString)\", \"mediaURL\": \"\(body.mediaURL)\",\"latitude\": \(body.latitude), \"longitude\": \(body.longitude)}".data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
