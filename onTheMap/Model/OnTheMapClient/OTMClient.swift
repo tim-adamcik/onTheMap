@@ -89,7 +89,7 @@ enum Endpoints {
         task.resume()
     }
     
-    class func postStudents(completion: @escaping (Error?) -> Void) {
+    class func postStudents(body: StudentLocation, completion: @escaping (Error?) -> Void) {
         var request = URLRequest(url: Endpoints.students.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

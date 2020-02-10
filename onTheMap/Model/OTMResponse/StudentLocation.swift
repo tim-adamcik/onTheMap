@@ -14,8 +14,8 @@ struct StudentLocationResponse: Codable {
 
 struct StudentLocation: Codable {
     
-    let firstName = "John"
-    let lastName = "Doe"
+    let firstName: String
+    let lastName: String
     let latitude: Double
     let longitude: Double
     let mapString: String
