@@ -51,9 +51,9 @@ class AddLinkViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    fileprivate func handlePostStudentRequest() {
-        let body = StudentLocation(firstName: "Daffy", lastName: "Duck", latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
-        OTMClient.postStudents(body: body) { (error) in
+    @IBAction func submitBtn(_ sender: Any) {
+        let post = StudentLocation(firstName: "Daffy", lastName: "Duck", latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
+        OTMClient.postStudents(body: post) { (error) in
             DispatchQueue.main.async {
                 if let error = error {
                     let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
@@ -61,12 +61,7 @@ class AddLinkViewController: UIViewController, UITextFieldDelegate {
                     self.present(alert, animated: true, completion: nil)
                     return
                 }
-                print("Posted successfully")
             }
         }
-    }
-    
-    @IBAction func submitBtn(_ sender: Any) {
-        handlePostStudentRequest()
     }
 }

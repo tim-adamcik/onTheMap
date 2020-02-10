@@ -116,6 +116,8 @@ extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDeleg
                 }
             }
         }
+        searchBar.resignFirstResponder()
     }
+    
     
 }
