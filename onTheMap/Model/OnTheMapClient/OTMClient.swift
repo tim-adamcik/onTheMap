@@ -105,11 +105,11 @@ enum Endpoints {
         task.resume()
     }
     
-    class func updateStudents(completion: @escaping (Error?) -> Void) {
+    class func updateStudents(body: StudentLocation, completion: @escaping (Error?) -> Void) {
         var request = URLRequest(url: Endpoints.students.url)
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"Jeff\", \"lastName\": \"Shiltz\",\"mapString\": \"Lake Wupenaco, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.322998, \"longitude\": -122.032182}".data(using: .utf8)
+        request.httpBody = "{\"uniqueKey\": \"\(body.uniqueKey)\", \"firstName\": \"\(body.firstName)\", \"lastName\": \"\(body.lastName)\",\"mapString\": \"\(body.mapString)\", \"mediaURL\": \"\(body.mediaURL)\",\"latitude\": \(body.latitude), \"longitude\": \(body.longitude)}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
           if error != nil { 

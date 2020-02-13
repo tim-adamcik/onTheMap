@@ -24,11 +24,18 @@ class ListViewController: UIViewController {
     
     func refreshStudentTable() {
         _ = OTMClient.getStudents(completion: { (students, error) in
-                  StudentModel.students = students
-                  DispatchQueue.main.async {
-                      self.listTableView.reloadData()
-                  }
-              })
+            if let error = error {
+                let alertVC = UIAlertController(title: "Error", message: "Error retrieving data", preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alertVC, animated: true)
+                print(error.localizedDescription)
+            } else {
+                StudentModel.students = students
+                DispatchQueue.main.async {
+                    self.listTableView.reloadData()
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +56,14 @@ class ListViewController: UIViewController {
        refreshStudentTable()
     }
     
+    @IBAction func logoutBtnPressed(_ sender: Any) {
+        OTMClient.deleteSession { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {

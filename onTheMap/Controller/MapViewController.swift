@@ -76,4 +76,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func refreshBtnPressed(_ sender: Any) {
         reloadMap()
     }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        OTMClient.deleteSession { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

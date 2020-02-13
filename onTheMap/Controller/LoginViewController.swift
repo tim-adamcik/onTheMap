@@ -41,13 +41,20 @@ class LoginViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     return
                 }
+                let indicator = UIActivityIndicatorView()
+                indicator.color = .black
+                indicator.style = .large
+                self.view.addSubview(indicator)
+                self.view.bringSubviewToFront(indicator)
+                indicator.startAnimating()
+                
                 self.username = self.emailTextField.text!
                 self.password = self.passwordTextField.text!
                 self.udacityDict = [self.emailTextField.text! : self.passwordTextField.text!]
                 
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabVC")
                 vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                self.present(vc, animated: true, completion: nil)
+                self.present(vc, animated: true) { indicator.stopAnimating() }
             }
         }
     }

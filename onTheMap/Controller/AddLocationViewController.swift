@@ -99,6 +99,12 @@ extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDeleg
         searchRequest.naturalLanguageQuery = searchBarText
         searchRequest.region = mapView.region
         let search = MKLocalSearch(request: searchRequest)
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .black
+        indicator.style = .large
+        self.view.addSubview(indicator)
+        self.view.bringSubviewToFront(indicator)
+        indicator.startAnimating()
         search.start { (response, error) in
             if response == nil {
                 print("Error: \(error?.localizedDescription ?? "Unknown Error").")
@@ -115,9 +121,8 @@ extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDeleg
             
                 }
             }
+            indicator.stopAnimating()
         }
         searchBar.resignFirstResponder()
     }
-    
-    
 }

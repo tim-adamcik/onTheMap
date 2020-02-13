@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,11 +179,18 @@
                         <viewLayoutGuide key="safeArea" id="DSF-4J-COu"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="778-jr-I6L">
-                        <barButtonItem key="leftBarButtonItem" image="mappin.and.ellipse" catalog="system" id="sod-4c-r04">
-                            <connections>
-                                <action selector="pintBtnPressed:" destination="Ohg-dB-FSz" id="3RV-U8-Dw4"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Logout" id="sod-4c-r04">
+                                <connections>
+                                    <action selector="logoutBtnPressed:" destination="Ohg-dB-FSz" id="B5M-ug-czY"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="mappin.and.ellipse" catalog="system" id="ubk-Me-gg9">
+                                <connections>
+                                    <action selector="pintBtnPressed:" destination="Ohg-dB-FSz" id="ts1-CB-9Bx"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nTe-TB-oye">
                             <connections>
                                 <action selector="refreshBtnPressed:" destination="Ohg-dB-FSz" id="1a6-Pi-lBk"/>
@@ -237,11 +244,18 @@
                         <viewLayoutGuide key="safeArea" id="Yqa-bo-EGP"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="EJd-cb-JC1">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="twD-kf-Cdl">
-                            <connections>
-                                <action selector="pinBtnPressed:" destination="VaK-2s-MKm" id="qRp-Bs-yHE"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Logout" id="twD-kf-Cdl">
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="VaK-2s-MKm" id="U2Q-mr-L7Y"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="mappin.and.ellipse" catalog="system" id="IES-O0-l1P">
+                                <connections>
+                                    <action selector="pinBtnPressed:" destination="VaK-2s-MKm" id="Pmf-YG-iaM"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MiQ-Zc-fsW">
                             <connections>
                                 <action selector="refreshBtnPressed:" destination="VaK-2s-MKm" id="EZg-uo-A9H"/>
