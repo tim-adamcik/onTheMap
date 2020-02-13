@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     @IBAction func pinBtnPressed(_ sender: Any) {
-        let alertVC = UIAlertController(title: "Override", message: "Creating a new pin will erase existing pin", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Add a pin", message: "Creating a new pin will erase any existing pin", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Continue", style: .default, handler: { alert in
             let vc = self.storyboard?.instantiateViewController(identifier: "AddLocationViewController") as! AddLocationViewController
             self.present(vc, animated: true, completion: nil)
