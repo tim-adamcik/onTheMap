@@ -37,10 +37,7 @@ class ListViewController: UIViewController {
             }
         })
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+ 
     
     @IBAction func pintBtnPressed(_ sender: Any) {
         let alertVC = UIAlertController(title: "Add a pin", message: "Creating a new pin will erase any existing pin", preferredStyle: .alert)

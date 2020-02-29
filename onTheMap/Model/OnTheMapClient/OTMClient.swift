@@ -20,6 +20,7 @@ enum Endpoints {
     case handleLoginRequest
     case deleteRequest
     case userInfo
+    case postStudents
     
     var url: URL {
         return URL(string: stringValue)!
@@ -28,13 +29,15 @@ enum Endpoints {
     var stringValue: String {
         switch self {
         case .students:
-            return "https://onthemap-api.udacity.com/v1/StudentLocation"
+            return "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100?order=-updatedAt"
         case .handleLoginRequest:
             return "https://onthemap-api.udacity.com/v1/session"
         case .deleteRequest:
             return "https://onthemap-api.udacity.com/v1/session"
         case .userInfo:
             return "https://onthemap-api.udacity.com/v1/users/" + Auth.id
+        case .postStudents:
+            return "https://onthemap-api.udacity.com/v1/session"
         }
     }
 }
@@ -73,7 +76,7 @@ enum Endpoints {
     
     class func getStudents(completion: @escaping ([StudentLocation], Error?) -> Void) {
         
-        let task = URLSession.shared.dataTask(with: Endpoints.students.url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: Endpoints.postStudents.url) { (data, response, error) in
             guard let data = data else {
                 completion([], error)
                 return
