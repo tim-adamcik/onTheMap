@@ -51,7 +51,7 @@ enum Endpoints {
         request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 403 {
+            if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode != 200 {
                 let errorTemp = NSError(domain:"", code: statusCode, userInfo:nil)
                 completion(false, errorTemp)
                 return
@@ -76,7 +76,7 @@ enum Endpoints {
     
     class func getStudents(completion: @escaping ([StudentLocation], Error?) -> Void) {
         
-        let task = URLSession.shared.dataTask(with: Endpoints.postStudents.url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: Endpoints.students.url) { (data, response, error) in
             guard let data = data else {
                 completion([], error)
                 return
@@ -115,7 +115,7 @@ enum Endpoints {
         request.httpBody = "{\"uniqueKey\": \"\(body.uniqueKey)\", \"firstName\": \"\(body.firstName)\", \"lastName\": \"\(body.lastName)\",\"mapString\": \"\(body.mapString)\", \"mediaURL\": \"\(body.mediaURL)\",\"latitude\": \(body.latitude), \"longitude\": \(body.longitude)}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-          if error != nil { 
+          if error != nil {
               return
           }
           print(String(data: data!, encoding: .utf8)!)
@@ -150,14 +150,22 @@ enum Endpoints {
         let request = URLRequest(url: Endpoints.userInfo.url)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-          if error != nil { // Handle error...
+          if let error = error {
+            completion(error)
               return
           }
-          let range = 5..<data!.count
-          let newData = data?.subdata(in: range) /* subset response data! */
-          print(String(data: newData!, encoding: .utf8)!)
+          if let data = data {
+              let range = 5..<data.count
+              let newData = data.subdata(in: range) /* subset response data! */
+              guard let json = try? JSONSerialization.jsonObject(with: newData, options: []) as? [String:Any] else { return }
+              if let firstName = json["first_name"] as? String,
+                let lastName = json["last_name"] as? String {
+                AccountManager.shared.firstName = firstName
+                AccountManager.shared.lastName = lastName
+                completion(nil)
+              }
+            }
         }
         task.resume()
     }
-    
 }

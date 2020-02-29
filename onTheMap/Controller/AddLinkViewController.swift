@@ -52,7 +52,7 @@ class AddLinkViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func submitBtn(_ sender: Any) {
-        let post = StudentLocation(firstName: "Daffy", lastName: "Duck", latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
+        let post = StudentLocation(firstName: AccountManager.shared.firstName, lastName: AccountManager.shared.lastName, latitude: currentLatitude!, longitude: currentLongitude!, mapString: currentMapString!, mediaURL: mediaURL, objectId: OTMClient.Auth.id, uniqueKey: OTMClient.Auth.key)
         OTMClient.postStudents(body: post) { (error) in
             DispatchQueue.main.async {
                 if let error = error {

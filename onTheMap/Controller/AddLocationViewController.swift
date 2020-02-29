@@ -15,6 +15,8 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let locationManager = CLLocationManager()
     var latitude: Double?
     var longitude: Double?
@@ -58,7 +60,6 @@ class AddLocationViewController: UIViewController {
 }
 
 
-
 extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDelegate {
     
     
@@ -99,13 +100,9 @@ extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDeleg
         searchRequest.naturalLanguageQuery = searchBarText
         searchRequest.region = mapView.region
         let search = MKLocalSearch(request: searchRequest)
-        let indicator = UIActivityIndicatorView()
-        indicator.color = .black
-        indicator.style = .large
-        self.view.addSubview(indicator)
-        self.view.bringSubviewToFront(indicator)
-        indicator.startAnimating()
+        activityIndicator.startAnimating()
         search.start { (response, error) in
+            self.activityIndicator.stopAnimating()
             if response == nil {
                 print("Error: \(error?.localizedDescription ?? "Unknown Error").")
             } else {
@@ -118,10 +115,8 @@ extension AddLocationViewController: UISearchBarDelegate, CLLocationManagerDeleg
                     self.longitude = lon
                     self.mapString = searchBarText
                     self.addPinAndZoomToLocationCoordinates(lat: lat, lon: lon, title: searchBarText)
-            
                 }
             }
-            indicator.stopAnimating()
         }
         searchBar.resignFirstResponder()
     }

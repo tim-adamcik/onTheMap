@@ -25,10 +25,12 @@ class ListViewController: UIViewController {
     func refreshStudentTable() {
         _ = OTMClient.getStudents(completion: { (students, error) in
             if let error = error {
-                let alertVC = UIAlertController(title: "Error", message: "Error retrieving data", preferredStyle: .alert)
-                alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                self.present(alertVC, animated: true)
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    let alertVC = UIAlertController(title: "Error", message: "Error retrieving data", preferredStyle: .alert)
+                    alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alertVC, animated: true)
+                    print(error.localizedDescription)
+                }
             } else {
                 StudentModel.students = students
                 DispatchQueue.main.async {

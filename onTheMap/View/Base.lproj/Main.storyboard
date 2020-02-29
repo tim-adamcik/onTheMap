@@ -279,10 +279,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="SM3-n6-Jhu">
-                                <rect key="frame" x="-41" y="44" width="415.66666666666669" height="724"/>
+                                <rect key="frame" x="-41.333333333333343" y="44" width="416" height="724"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-Ax-Ck5">
-                                        <rect key="frame" x="99.999999999999986" y="0.0" width="215.66666666666663" height="229"/>
+                                        <rect key="frame" x="100.33333333333333" y="0.0" width="215.33333333333337" height="229"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCR-LP-tI4">
                                                 <rect key="frame" x="0.0" y="0.0" width="215.33333333333334" height="51.666666666666664"/>
@@ -307,10 +307,10 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4d-VD-aPc">
-                                        <rect key="frame" x="0.0" y="279" width="415.66666666666669" height="350"/>
+                                        <rect key="frame" x="0.0" y="279" width="416" height="350"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YgC-r7-7aP">
-                                                <rect key="frame" x="60.666666666666657" y="156" width="294.33333333333337" height="38"/>
+                                                <rect key="frame" x="61" y="156" width="294.33333333333331" height="38"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -326,7 +326,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwU-eD-IyE">
-                                        <rect key="frame" x="111.33333333333331" y="679" width="193" height="45"/>
+                                        <rect key="frame" x="111.66666666666666" y="679" width="192.99999999999997" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="XwO-F3-Y9L"/>
@@ -437,15 +437,21 @@
                                     <action selector="addLinkButton:" destination="SBZ-49-hvG" eventType="touchUpInside" id="HlT-hO-L4i"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kPP-CV-mfQ">
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="kPP-CV-mfQ" firstAttribute="centerX" secondItem="q2n-4c-hpb" secondAttribute="centerX" id="Evp-hH-nqJ"/>
                             <constraint firstItem="4yI-lb-tv3" firstAttribute="centerX" secondItem="q2n-4c-hpb" secondAttribute="centerX" id="GF1-0s-kSa"/>
                             <constraint firstItem="4yI-lb-tv3" firstAttribute="top" secondItem="kCJ-y8-Mug" secondAttribute="top" constant="20" id="K4Y-st-pYi"/>
                             <constraint firstItem="4yI-lb-tv3" firstAttribute="trailing" secondItem="kCJ-y8-Mug" secondAttribute="trailing" id="Wkv-rN-97a"/>
                             <constraint firstItem="lFA-Hp-F6H" firstAttribute="leading" secondItem="kCJ-y8-Mug" secondAttribute="leading" constant="100" id="YOA-B2-wiE"/>
                             <constraint firstItem="lFA-Hp-F6H" firstAttribute="centerX" secondItem="q2n-4c-hpb" secondAttribute="centerX" id="aRA-OV-y4I"/>
                             <constraint firstItem="kCJ-y8-Mug" firstAttribute="trailing" secondItem="lFA-Hp-F6H" secondAttribute="trailing" constant="100" id="hD8-eg-jVk"/>
+                            <constraint firstItem="kPP-CV-mfQ" firstAttribute="centerY" secondItem="q2n-4c-hpb" secondAttribute="centerY" id="iPZ-SD-HI2"/>
                             <constraint firstItem="lFA-Hp-F6H" firstAttribute="top" secondItem="4yI-lb-tv3" secondAttribute="bottom" constant="40" id="qJ8-Jf-uc9"/>
                             <constraint firstItem="4yI-lb-tv3" firstAttribute="leading" secondItem="kCJ-y8-Mug" secondAttribute="leading" id="vRc-bS-FAJ"/>
                         </constraints>
@@ -453,6 +459,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SVK-Dz-09F"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="kPP-CV-mfQ" id="cZA-tA-zvm"/>
                         <outlet property="mapView" destination="bGm-5l-q6h" id="XvY-sz-9MC"/>
                         <outlet property="searchBar" destination="hlU-HY-6wp" id="uL7-Pp-rGX"/>
                     </connections>

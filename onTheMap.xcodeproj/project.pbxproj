@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0324D7240AD601005E7340 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0324D6240AD601005E7340 /* AccountManager.swift */; };
 		BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */; };
 		BA37388E23CBAFE100ABB8AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */; };
 		BA37389023CBAFE100ABB8AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37388F23CBAFE100ABB8AD /* LoginViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA0324D6240AD601005E7340 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		BA37388823CBAFE100ABB8AD /* onTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA37388B23CBAFE100ABB8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA37388D23CBAFE100ABB8AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				BA4942A423CF589600C0F5E9 /* StudentModel.swift */,
+				BA0324D6240AD601005E7340 /* AccountManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				BA3738AD23CD4BD600ABB8AD /* ListViewController.swift in Sources */,
 				BA37388C23CBAFE100ABB8AD /* AppDelegate.swift in Sources */,
 				BA4942A923D6466F00C0F5E9 /* DropPinController.swift in Sources */,
+				BA0324D7240AD601005E7340 /* AccountManager.swift in Sources */,
 				BA4942A523CF589600C0F5E9 /* StudentModel.swift in Sources */,
 				BA4942AD23E5E6C100C0F5E9 /* AddLocationViewController.swift in Sources */,
 				BA3738AB23CD4BA700ABB8AD /* MapViewController.swift in Sources */,

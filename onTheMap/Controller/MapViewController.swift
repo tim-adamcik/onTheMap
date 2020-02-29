@@ -80,11 +80,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func logoutButtonPressed(_ sender: Any) {
         OTMClient.deleteSession { (error) in
             if let error = error {
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alertVC, animated: true)
+                    return
+                }
             }
+            self.dismiss(animated: true, completion: nil)
         }
-        dismiss(animated: true, completion: nil)
+        
     }
-    
-    
 }
